@@ -1,0 +1,71 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="Factsheet_Controller">
+    
+    
+    <!-- String Attributes -->
+    <aura:attribute name="objectName" type="String" access="global" />
+    <aura:attribute name="recordId" type="String" default="" description="The id of the record we are building a factsheet for" />
+    <aura:attribute name="noAttachmentsMessage" type="String" default="No attachments found" />
+    
+    <!-- Number Attributes -->
+    <aura:attribute name="attachmentCount" type="Integer" default="0" />
+    
+    <!-- List & Object Attributes -->
+    <aura:attribute name="attachments" type="Attachment[]" default="[]" />
+    <aura:attribute name="lst" type="String[]" default="[1,2,3]" />
+
+    <!-- Handle local component events -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	    
+	<div id="{!v.objectName+'_section_panel'}" aura:id="section_panel" class="slds-section slds-is-open slds-m-around_small" style="background-color: #fff; border: 1px solid #999; border-radius: 5px;" >
+    	<h3 class="slds-section__title">
+        	<button aria-controls="section_content" aria-expanded="true" class="slds-button slds-section__title-action" onclick="{!c.toggleSection}">
+                <c:svg class="slds-section__title-action-icon slds-button__icon slds-button__icon_left" ariaHidden="true" xlinkHref="/resource/SLDS232/assets/icons/utility-sprite/svg/symbols.svg#switch" />
+                <span class="slds-truncate" title="{!v.objectLabel}">{!$Label.c.Attachments} - {!v.attachmentCount}&nbsp; <span class="slds-text-body_small" style="text-transform: lowercase;">{!$Label.c.Attachments}</span></span>
+            </button>
+        </h3>
+        <div aria-hidden="false" class="slds-section__content" aura:id="section_content" id="{!v.objectName+'_section_content'}" style="overflow-x: scroll;">                
+            <aura:renderIf isTrue="{!v.attachmentCount == 0}">
+                <div aura:id="carouselMessageContainer" id="carouselMessageContainer" class="slds-notify_container slds-is-relative" aria-hidden="false">
+                    <div class="slds-notify slds-notify_toast slds-theme_warning" role="alert">
+                        <span class="slds-assistive-text">warning</span>
+                        <span class="slds-icon_container slds-icon-utility-warning slds-m-right_small slds-no-flex slds-align-top" title="warning icon">
+                            <c:svg class="slds-icon slds-icon_small" ariaHidden="true" xlinkHref="/resource/SLDS232/assets/icons/utility-sprite/svg/symbols.svg#warning" />
+                        </span>
+                        <div class="slds-notiy__content">
+                            <div class="slds-text-heading_small">{!v.noAttachmentsMessage}</div>
+                        </div>
+                    </div>
+                </div>
+                
+            <aura:set attribute="else">
+                <ul class="slds-list_horizontal">
+                    <aura:iteration items="{!v.attachments}" var="l">
+                        <li class="slds-m-horizontal_small">
+                            <div class="slds-file slds-file_card" >
+                                <figure>
+                                    <a href="javscript:void(0);" class="slds-file__crop" style="height: 150px; width: 150px;">
+                                        <img src="{!l.src}" alt="{!l.name}" />
+                                    </a>
+                                    <figcaption class="slds-file__title slds-file__title_card slds-truncate">
+                                        <div class="slds-media slds-media_small slds-media_center">
+                                            <div class="slds-media__figure slds-line-height_reset">
+                                                <span class="slds-icon_container" title="img">
+                                                    <c:svg class="slds-icon slds-icon_x-small" ariaHidden="true" xlinkHref="/resource/SLDS232/assets/icons/doctype-sprite/svg/symbols.svg#image" />
+                                                    <span class="slds-assistive-text">png</span>
+                                                </span>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <span class="slds-file__text slds-truncate" title="{!l.name}"  style="width: 100px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{!l.name}</span>
+                                            </div>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </li>
+                    </aura:iteration>
+                </ul>
+            </aura:set>
+            </aura:renderIf>
+        </div>
+    </div>    
+</aura:component>

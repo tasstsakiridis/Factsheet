@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Overdue_Event_Cutoff__c</fullName>
+    <description>Maximum number of days to query for overdue events</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Maximum number of days to query for overdue events. Leave blank to limit number of overdue number of days to 365.</inlineHelpText>
+    <label>Overdue Event Cutoff</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

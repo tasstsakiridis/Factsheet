@@ -1,0 +1,16 @@
+<aura:component >
+    <!-- List & Object Attributes -->
+    <aura:attribute name="datarow" type="bfColumn[]" default="[]" />
+    <aura:attribute name="fieldset" type="bfColumn[]" default="[]" />
+    
+    <!-- Handle local component events -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <tr class="slds-hint-parent">
+    <aura:iteration items="{!v.datarow}" var="dr">
+    	<td data-label="{!dr.label}">
+        	<div class="slds-truncate" title="{!dr.label}">{!dr.value}</div>
+        </td>
+    </aura:iteration>
+    </tr>
+</aura:component>

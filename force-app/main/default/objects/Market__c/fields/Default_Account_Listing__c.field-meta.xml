@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Default_Account_Listing__c</fullName>
+    <externalId>false</externalId>
+    <label>Default Account Listing</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Active Accounts by Name</fullName>
+                <default>true</default>
+                <label>Active Accounts by Name</label>
+            </value>
+            <value>
+                <fullName>My Accounts</fullName>
+                <default>false</default>
+                <label>My Accounts</label>
+            </value>
+            <value>
+                <fullName>Inactive Accounts by Name</fullName>
+                <default>false</default>
+                <label>Inactive Accounts by Name</label>
+            </value>
+            <value>
+                <fullName>Accounts by Area</fullName>
+                <default>false</default>
+                <label>Accounts by Area</label>
+            </value>
+            <value>
+                <fullName>Accounts by Suburb</fullName>
+                <default>false</default>
+                <label>Accounts by Suburb</label>
+            </value>
+            <value>
+                <fullName>Accounts by Outlet Class</fullName>
+                <default>false</default>
+                <label>Accounts by Outlet Class</label>
+            </value>
+            <value>
+                <fullName>Accounts by Customer Group</fullName>
+                <default>false</default>
+                <label>Accounts by Customer Group</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
